@@ -27,14 +27,13 @@ def load_images_from_folder(base_folder):
 base_folder_path = "mrleyedataset"  # Base folder containing the subfolders
 images, labels = load_images_from_folder(base_folder_path)
 
-# Ensure some images were loaded
 if len(images) == 0:
     raise ValueError("No images were loaded. Check the dataset path and image files.")
 
-# Resize images
+
 images_resized = [cv2.resize(img, (64, 64)) for img in images]
 
-# Normalize images
+
 images_normalized = np.array(images_resized) / 255.0
 labels = np.array(labels)
 
